@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f02b2b;
+    color: #e1d5d5;
+}
+
+header {
+    background-color: #212322;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.login-button {
+    padding: 14px 24px;
+    font-size: 18px;
+}
+
+.button-container {
+    display: flex;
+    margin-left: auto;
+}
+
+.button {
+    background-color: #f02b2b;
+    color: #212322;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 15px;
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #f02b2b;
+}
+
+form {
+    max-width: 500px;
+    margin: 150px auto;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #e1d5d5;
+}
+
+form button {
+    width: 100%;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #f7261f;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.contact {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    
+}
+
+.contact img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px; 
+}
+
