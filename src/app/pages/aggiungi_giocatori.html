@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Giocatori</title>
+    <style>
+        body {
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+        }
+        #nomiGiocatori {
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 10px;
+            max-width: 200px;
+            overflow-y: auto;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Aggiungi Giocatori</h1>
+        <button onclick="aggiungiGiocatore()">Aggiungi</button>
+        <select id="giocatori">
+            AGGIUNGI GIOCATORI
+        </select>
+        <div id="nomiGiocatori"></div>
+    </div>
+
+    <script>
+        function aggiungiGiocatore() {
+            var giocatore = prompt("Inserisci il nome del giocatore:");
+            if (giocatore) {
+                var select = document.getElementById("giocatori");
+                var option = document.createElement("option");
+                option.text = giocatore;
+                select.add(option);
+                
+                var nomiGiocatoriDiv = document.getElementById("nomiGiocatori");
+                nomiGiocatoriDiv.innerHTML += giocatore + "<br>";
+            }
+        }
+    </script>
+</body>
+</html>

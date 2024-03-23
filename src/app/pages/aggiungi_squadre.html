@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Squadra</title>
+    <style>
+        body {
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button onclick="aggiungiSquadra()">Aggiungi Squadra</button>
+        <div id="squadre"></div>
+    </div>
+
+    <script>
+        function aggiungiSquadra() {
+            var nomeSquadra = prompt("Inserisci il nome della squadra:");
+            if (nomeSquadra) {
+                var recapito = prompt("Inserisci il recapito telefonico per la squadra:");
+                var squadreDiv = document.getElementById("squadre");
+                var squadraTable = document.createElement("table");
+                squadraTable.innerHTML = `
+                    <tr>
+                        <th>Nome Squadra</th>
+                        <th>Recapito Telefonico</th>
+                        <th>Giocatori</th>
+                        <th>Numero di Giocatori</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>${nomeSquadra}</td>
+                        <td>${recapito}</td>
+                        <td id="giocatori-${nomeSquadra}"></td>
+                        <td>0</td>
+                        <td><input type="text" id="nominativo-${nomeSquadra}" placeholder="Inserisci nominativo"><button onclick="aggiungiGiocatore('${nomeSquadra}')">Aggiungi</button></td>
+                    </tr>
+                `;
+                squadreDiv.appendChild(squadraTable);
+            }
+        }
+
+        function aggiungiGiocatore(nomeSquadra) {
+            var inputNominativo = document.getElementById("nominativo-" + nomeSquadra);
+            var nominativo = inputNominativo.value;
+            if (nominativo.trim() !== "") {
+                var giocatoriCell = document.getElementById("giocatori-" + nomeSquadra);
+                giocatoriCell.textContent += nominativo + ", ";
+                inputNominativo.value = ""; 
+                var numGiocatoriCell = giocatoriCell.parentNode.cells[3];
+                var numGiocatori = parseInt(numGiocatoriCell.textContent);
+                numGiocatori++;
+                numGiocatoriCell.textContent = numGiocatori;
+                if (numGiocatori >= 6) {
+                    inputNominativo.disabled = true;
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>
